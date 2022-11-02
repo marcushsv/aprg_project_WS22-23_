@@ -1,0 +1,18 @@
+{
+  "name": "server_gaming_presentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "better-sqlite3": "^7.6.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "password-hash": "^1.2.2"
+  }
+}

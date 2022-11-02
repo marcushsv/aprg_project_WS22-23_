@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <style>
+      * {
+          box-sizing: border-box;
+      }
+
+  </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrierung</title>
+  </head>
+
+  <style> 
+
+    body {
+      margin: 0px;
+      padding: 2px;
+    }
+
+    .navbar {
+      background-color: rgb(0, 0, 0);
+      height: 30px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav {
+      float: right;
+      background-color: rgb(244,244,244);
+      
+
+    }
+
+    li {
+      display: inline;
+      margin: 30px;
+    }
+
+    nav a {
+      color: #353535;
+      display: inline-block;
+      text-decoration: none;
+      padding-top: 15px;
+    }
+
+    nav a:hover {
+      color: rgb(181, 56, 18);
+    }
+
+    nav a:active {
+      font-weight: bold ;
+    }
+
+    img {
+      width: 500px ;
+      padding: 50px;
+    }
+
+
+    @media screen and (max-width: 800px) {
+      nav {
+        width: 100%;
+        margin-top: -5px;
+      }
+
+      nav li {
+        display: block;
+        background-color:rgb(255, 255, 255);
+        text-align: center;
+
+      }
+      
+    }
+    * {
+      font-family: Montserrat, sans-serif;
+    }
+
+  </style>
+  <body style="background-color:rgb(244,244,244) ;">
+
+    <div class="navbar"> 
+      <nav>
+          <ul>
+            <li><a href="/startseite">Startseite</a></li>
+            <li><a href="/loginformular">Login</a></li>
+            <li><a href="/benutzerliste">Benutzerliste</a></li>
+            <li><a href="/registrierung">Registrierung</a></li>
+        </ul>
+      </nav>
+    </div>
+    <h1 style="background-color:rgb(244,244,244) ;">Fighting Game X Official Demo and Roadmap</h1>
+    <!-- Sichtbarer Dokumentinhalt im body -->
+    <h2>Registrierung</h2>
+
+    <form action="/hinzufuegen" method="POST">
+        <label for="fname">Benutzername:</label><br>
+        <input type="text" id="fname" name="benutzer" value="John"><br>
+        <label for="lname">Passwort:</label><br>
+        <input type="password" id="lname" name="password" value="Doe"><br><br>
+        <input type="submit" value="Submit">
+      </form> 
+      
+      <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+      
+  
+   
+  </body>
+</html>
