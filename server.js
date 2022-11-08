@@ -20,7 +20,7 @@ app.listen(3000, function(){
 // initialisierung passwort hash
 const passwordHash = require('password-hash');
 const bcrypt = require('bcrypt');
-
+//statt body-parser
 app.use(express.urlencoded({extended: true}))
 
 // Ordner freigeben
@@ -38,14 +38,26 @@ const db = require("better-sqlite3")(DATABASE);
 app.post("/loginformular", function(req, res){
     const param_benutzer = req.body.benutzer; // auch möglich = req["benutzername"]
     const param_password = req.body.password;
+    const rows = db.prepare("SELECT Passwort FROM user_verwaltung_projekt WHERE Benutzername=?").all(param_benutzer);
+    if (rows && rows.length == 1) {
+        const hash = rows[0].Passwort;
+        const isValid = bcrypt.compareSync(param_password, hash);
+        if (isValid == true) {
+            res.render("loginErfolgreich", {"benutzername": param_benutzer} )
+        }
+        else {
+            res.render("loginFehlgeschlagen", {"benutzername": param_benutzer})
+
+        }
+    }
     
 
     //res.send(`Willkommen ${benutzername} ${passwort}`);
-    if(anmeldungErfolgreich(param_benutzer,param_password)){
-        res.render("loginErfolgreich", {"benutzername": param_benutzer} )
-    }else {
-        res.render("loginFehlgeschlagen", {"benutzername": param_benutzer})
-    }
+    // if(anmeldungErfolgreich(param_benutzer,param_password)){
+    //     res.render("loginErfolgreich", {"benutzername": param_benutzer} )
+    // }else {
+    //     res.render("loginFehlgeschlagen", {"benutzername": param_benutzer})
+    // }
     
 
 }); 
