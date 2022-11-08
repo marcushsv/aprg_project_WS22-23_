@@ -13,6 +13,18 @@ app.get("/hello", function(req, res){
 app.engine(".ejs", require("ejs").__express);
 app.set("view engine", "ejs");
 
+// initialisiert Cookie-parser
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+//initialisiert session
+const session = require('express-session');
+app.use(session({
+    secret:'example',
+    resave:false,
+    saveUninitialized: false
+}));
+
 //Startet Server
 app.listen(3000, function(){
     console.log("Server wird gestartet")
@@ -47,9 +59,35 @@ app.post("/loginformular", function(req, res){
         res.render("loginFehlgeschlagen", {"benutzername": param_benutzer})
     }
     
+}); 
+
+//Sessionvariable setzen
+app.post("/sessionSetzen", function(req,res){
+    //wert aus dem Formular lesen
+    const param_sessionValue= req.body.sessionValue;
+    //sessionvariable setzen
+    req.session.sessionValue = param_sessionValue;
+    //weiterleiten
+    res.redirect("/zeigesession");
 
 }); 
 
+//Sessionvariable Löschen 
+app.get("/sessionLoeschen",function(req,res){
+    req.session.destroy();
+
+    res.redirect("/zeigesession");
+})
+
+//sessionvariable lesen
+app.get("/zeigesession", function(req,res){
+    if (!req.session.sessionValue){
+        res.render("zeigesession", {"message": "Sessionvariable nicht gesetzt"});
+    }
+    else{
+        res.render("zeigesession", {"message": req.session.sessionValue});
+    }
+});
 // app.post("/hinzufuegen", function(req, res){
 //     const benutzer = req.body.benutzer; // auch möglich = req["benutzername"]
 //     const password = req.body.password;
@@ -101,32 +139,16 @@ app.post("/hinzufuegen", function(req, res){
     }
     else {
         res.render('startseite', { 'message': `Fehler: Benutzername ${param_benutzer} existiert bereits!` });
-
     }
-    
-
-    
-    
 
 }); 
-
-
-
-
 // eigene Funktionen
-
-
-
-function anmeldungErfolgreich (benutzer, password){ 
+function anmeldungErfolgreich (benutzer, password){  
     const rows = db.prepare('SELECT * FROM user_verwaltung_projekt').all();
     for (element of rows){
         if (element.Benutzername == benutzer && element.Passwort == password){
             return true;
             };
-            
     };
         return false;
-
-}
-
-
+};
