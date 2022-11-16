@@ -55,51 +55,59 @@ app.post("/loginformular", function(req, res){
         const hash = rows[0].Passwort;
         const isValid = bcrypt.compareSync(param_password, hash);
         if (isValid == true) {
-            res.render("loginErfolgreich", {"benutzername": param_benutzer} )
+            req.session.authenticated = true;
+            req.session.user = param_benutzer;
+            res.render("game-seite", {"benutzername": param_benutzer} )
+            
         }
         else {
             res.render("loginFehlgeschlagen", {"benutzername": param_benutzer})
 
         }
-    }
-    
+    } else {
+        res.render("loginFehlgeschlagen", {"benutzername": param_benutzer})
 
-    //res.send(`Willkommen ${benutzername} ${passwort}`);
-    // if(anmeldungErfolgreich(param_benutzer,param_password)){
-    //     res.render("loginErfolgreich", {"benutzername": param_benutzer} )
-    // }else {
-    //     res.render("loginFehlgeschlagen", {"benutzername": param_benutzer})
-    // }
+    }
     
 }); 
 
 //Sessionvariable setzen
-app.post("/sessionSetzen", function(req,res){
-    //wert aus dem Formular lesen
-    const param_sessionValue= req.body.sessionValue;
-    //sessionvariable setzen
-    req.session.sessionValue = param_sessionValue;
-    //weiterleiten
-    res.redirect("/zeigesession");
+// app.post("/sessionSetzen", function(req,res){
+//     //wert aus dem Formular lesen
+//     const param_sessionValue= req.body.benutzer;
+//     //sessionvariable setzen
+//     req.session.user= param_sessionValue;
+//     //weiterleiten
+//     res.redirect("/zeigesession");
 
-}); 
+// }); 
 
 //Sessionvariable Löschen 
-app.get("/sessionLoeschen",function(req,res){
+app.get("/abmelden",function(req,res){
     req.session.destroy();
 
-    res.redirect("/zeigesession");
+    res.redirect("/startseite");
 })
 
 //sessionvariable lesen
-app.get("/zeigesession", function(req,res){
-    if (!req.session.sessionValue){
-        res.render("zeigesession", {"message": "Sessionvariable nicht gesetzt"});
-    }
-    else{
-        res.render("zeigesession", {"message": req.session.sessionValue});
-    }
-});
+// app.get("/zeigesession", function(req,res){
+//     if (!req.session.sessionValue){
+//         res.render("loginsession", {"message": "Sessionvariable nicht gesetzt"});
+//     }
+//     else{
+//         res.render("loginsession", {"message": req.session.sessionValue});
+//     }
+// });
+
+
+// app.get("/loginsession", function(req,res){
+//     if (!req.session.user){
+//         res.render("loginformular", {"message": "Sessionvariable nicht gesetzt"});
+//     }
+//     else{
+//         res.render("loginformular", {"message": req.session.user});
+//     }
+// });
 // app.post("/hinzufuegen", function(req, res){
 //     const benutzer = req.body.benutzer; // auch möglich = req["benutzername"]
 //     const password = req.body.password;
@@ -119,6 +127,27 @@ app.get("/zeigesession", function(req,res){
 
 app.get("/loginformular", function(req, res){
     res.render("loginformular.ejs");
+});
+
+app.get("/game-seite", function(req, res){
+    if (!req.session.user){
+        res.render("loginformular", {"message": "Sessionvariable nicht gesetzt"});
+    }
+    else{
+        res.render("game-seite.ejs");
+    }
+
+
+    
+});
+app.get("/index-parry", function(req, res){
+    if (!req.session.user){
+        res.render("loginformular", {"message": "Sessionvariable nicht gesetzt"});
+    }
+    else{
+        res.sendFile(__dirname + "/views/index-parry.html");
+    }
+    
 });
 
 app.get("/registrierung", function(req, res){
