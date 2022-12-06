@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <style>
+            * {
+                box-sizing: content-box, inherit;
+            }
+        </style>
+        <title>Das Team</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+<style>
+
+    .column {
+    float: left;
+    width: 24%;
+    margin-bottom: 16px;
+    padding: 0 6px;
+    }
+
+    .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    }
+
+    .container {
+    padding: 0 16px;
+    }
+
+    .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+
+    body {
+      margin: 0;
+      padding: 2px;
+    }
+    .navbar {
+      background-color: rgb(0, 0, 0);
+      height: 30px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav {
+      float: right;
+      background-color: rgb(244,244,244);
+      
+    }
+    li {
+      display: inline;
+      margin: 30px;
+    }
+    nav a {
+      color: #353535;
+      display: inline-block;
+      text-decoration: none;
+      padding-top: 15px;
+    }
+    nav a:hover {
+      color: rgb(181, 56, 18);
+    }
+    nav a:active {
+      font-weight: bold ;
+    }
+    @media screen and (max-width: 800px) {
+      nav {
+        width: 100%;
+        margin-top: -5px;
+      }
+      nav li {
+        display: block;
+        background-color:rgb(255, 255, 255);
+        text-align: center;
+      }
+      
+    }
+    * {
+      font-family: Montserrat, sans-serif;
+    }
+  </style>
+  <body style="background-color:rgb(244,244,244) ;">
+    
+    <div class="navbar"> 
+        <nav>
+            <ul>
+              <li><a href="/startseite">Startseite</a></li>
+              <li><a href="/team">Team</a></li>
+              <li><a href="/loginformular">Login</a></li>
+              <li><a href="/game-seite">Spiel</a></li>
+              <li><a href="/registrierung">Registrierung</a></li>
+          </ul>
+        </nav>
+      </div>
+
+<h2>Das Team</h2>
+<br>
+
+<div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="marcus.jpg" alt="Marcus" style="width:100%">
+        <div class="container">
+          <h2>Marcus Möller</h2>
+          <p class="title" style="font-size:130%;">Lead Programmer</p>
+          <p>Ich bin Marcus, der Lead Programmer.</p>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="max.jpg" alt="Max" style="width:100%">
+        <div class="container">
+          <h2>Max Tang</h2>
+          <p class="title" style="font-size:130%;">Lead Designer</p>
+          <p>Ich bin Max, der Lead Designer.</p>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="henri.jpg" alt="Henri" style="width:100%">
+        <div class="container">
+          <h2>Henri Fiedler</h2>
+          <p class="title" style="font-size:130%;">Senior Programmer</p>
+          <p>Ich bin Henri, der Senior Programmer.</p>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="tyler.jpg" alt="Tyler" style="width:100%">
+        <div class="container">
+          <h2>Tyler Lababidi</h2>
+          <p class="title" style="font-size:130%;">Senior Programmer/Designer</p>
+          <p>Ich bin Tyler, der Senior Programmer und Designer.</p>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  </html>
