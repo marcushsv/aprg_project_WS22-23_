@@ -149,6 +149,9 @@ app.get("/index-parry", function(req, res){
     }
     
 });
+app.get("/team", function(req, res){
+    res.render("team.ejs");
+});
 
 app.get("/registrierung", function(req, res){
     res.render("registrierung.ejs");
