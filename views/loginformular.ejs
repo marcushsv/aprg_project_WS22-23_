@@ -1,116 +1,55 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <style>
-      * {
-          box-sizing: border-box;
-      }
-
-  </style>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Startseite | Fighting Game X Official Demo and Roadmap</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
 
-  <style> 
-
-    body {
-      margin: 0;
-      padding: 2px;
-    }
-
-    .navbar {
-      background-color: rgb(0, 0, 0);
-      height: 30px;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav {
-      float: right;
-      background-color: rgb(244,244,244);
-      
-
-    }
-
-    li {
-      display: inline;
-      margin: 30px;
-    }
-
-    nav a {
-      color: #353535;
-      display: inline-block;
-      text-decoration: none;
-      padding-top: 15px;
-    }
-
-    nav a:hover {
-      color: rgb(181, 56, 18);
-    }
-
-    nav a:active {
-      font-weight: bold ;
-    }
-
-    img {
-      width: 500px ;
-      padding: 50px;
-    }
-
-
-    @media screen and (max-width: 800px) {
-      nav {
-        width: 100%;
-        margin-top: -5px;
-      }
-
-      nav li {
-        display: block;
-        background-color:rgb(255, 255, 255);
-        text-align: center;
-
-      }
-      
-    }
-    * {
-      font-family: Montserrat, sans-serif;
-    }
-
-  </style>
-  <body style="background-color:rgb(244,244,244) ;">
-
-    <div class="navbar"> 
-      <nav>
+  
+  <body>
+    <header class="background"> 
+      <nav class="nav main-nav">
           <ul>
             <li><a href="/startseite">Startseite</a></li>
             <li><a href="/team">Team</a></li>
             <li><a href="/loginformular">Login</a></li>
             <li><a href="/game-seite">Spiel</a></li>
             <li><a href="/registrierung">Registrierung</a></li>
-        </ul>
+          </ul>
       </nav>
-    </div>
-    <h1 style="background-color:rgb(244,244,244) ;">Fighting Game X Official Demo and Roadmap</h1>
+      <h1 class="band-name band-name-large">Fighting Game X</h1>
+    </header>
     <!-- Sichtbarer Dokumentinhalt im body -->
-    <h2>Login</h2>
-    
+    <div class="center">
+      <h1 class="center-h1">Login</h1>
 
-    <form action="/loginformular" method="POST">
-        <label for="fname">Benutzername:</label><br>
-        <input type="text" id="fname" name="benutzer" value="Marcus"><br>
-        <label for="password">Passwort:</label><br>
-        <input type="password" id="lname" name="password" value="Möller"><br><br>
-        <input type="submit" value="Submit">
+      <form action="/loginformular" method="POST">
+        <div class="txt_field">
+          <input type="text" id="fname" name="benutzer" value="Marcus">
+          <span></span>
+          <label>Benutzername</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" id="lname" name="password" value="Möller">
+          <span></span>
+          <label>Passwort</label>
+        </div>
+        <div>
+          <input type="submit" value="Login">
+        </div>
       </form> 
+        
+        <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+        
+    </div>
       
-      <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
-      
-  
+      <footer class="main-footer">
+        <div class="container main-footer-container">
+          <h3 class="band-name">Fighting Game X</h3>
+        </div>
+      </footer>
    
   </body>
 </html>
