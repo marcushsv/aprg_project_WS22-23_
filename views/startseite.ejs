@@ -1,106 +1,43 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <style>
-      * {
-          box-sizing: border-box;
-      }
-
-  </style>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Startseite | Fighting Game X Official Demo and Roadmap</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
 
-  <style> 
+  <body>
 
-    body {
-      margin: 0;
-      padding: 2px;
-    }
-
-    .navbar {
-      background-color: rgb(0, 0, 0);
-      height: 30px;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav {
-      float: right;
-      background-color: rgb(244,244,244);
-      
-
-    }
-
-    li {
-      display: inline;
-      margin: 30px;
-    }
-
-    nav a {
-      color: #353535;
-      display: inline-block;
-      text-decoration: none;
-      padding-top: 15px;
-    }
-
-    nav a:hover {
-      color: rgb(181, 56, 18);
-    }
-
-    nav a:active {
-      font-weight: bold ;
-    }
-
-    img {
-      width: 500px ;
-      padding: 50px;
-    }
-
-
-    @media screen and (max-width: 800px) {
-      nav {
-        width: 100%;
-        margin-top: -5px;
-      }
-
-      nav li {
-        display: block;
-        background-color:rgb(255, 255, 255);
-        text-align: center;
-
-      }
-      
-    }
-    * {
-      font-family: Montserrat, sans-serif;
-    }
-
-  </style>
-  <body style="background-color:rgb(244,244,244) ;">
-
-    <div class="navbar"> 
-      <nav>
+    <header class="background"> 
+      <nav class="nav main-nav">
           <ul>
-            <li><a href="/startseite">Startseite</a></li>
-            <li><a href="/loginformular">Login</a></li>
-            <li><a href="/game-seite">Spiel</a></li>
-            <li><a href="/registrierung">Registrierung</a></li>
+            <li><a href="/startseite">STARTSEITE</a></li>
+            <li><a href="/loginformular">LOGIN</a></li>
+            <li><a href="/game-seite">SPIEL</a></li>
+            <li><a href="/registrierung">REGISTRIERUNG</a></li>
         </ul>
       </nav>
-    </div>
-    <h1 style="background-color:rgb(244,244,244) ;">Fighting Game X Official Demo and Roadmap</h1>
+      <h1 class="band-name band-name-large">Fighting Game X</h1>
+    </header>
     <!-- Sichtbarer Dokumentinhalt im body -->
-    <p>Hier gibt es NOCH!!! nichts zu sehen!!!
-        <p><a href="/login"> Hier gehts zur Registrierung</a>
-        </p>
 
-        <img src="wip_style_samurai-picture.jpg">
-   
+    <section class="content-section container">
+      <h1 class="section-header">INFO</h1>
+      <img class="about-band-image" src="wip_style_samurai-picture2.jpg">
+      <p class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
+      </p>
+      
+      <p>
+        <a class="reg-button" href="/registrierung"> Hier gehts zur Registrierung</a>
+      </p>
+      
+    </section>
+
+    <footer class="main-footer">
+      <div class="container main-footer-container">
+        <h3 class="band-name">Fighting Game X</h3>
+      </div>
+    </footer>
   </body>
 </html>
